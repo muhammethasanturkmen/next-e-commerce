@@ -1,5 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Category from "./category/page";
+import Home from "./page";
+import Products from "./products/page";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,6 +24,23 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <header>
+          <h1>E-Ticaret Mağazası</h1>
+          <nav>
+            <ul>
+              <li><a href="/">Ana Sayfa</a></li>
+              <li><a href="/category">Kategoriler</a></li>
+              <li><a href="/products">Ürünler</a></li>
+              <li><a href="/contact">İletişim</a></li>
+            </ul>
+          </nav>
+        </header>
+        <main>
+          <section className="category-section">
+            <h2>Kategoriler</h2>
+            <Category />
+          </section>
+          </main>
         {children}
       </body>
     </html>
